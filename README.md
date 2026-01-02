@@ -1,4 +1,4 @@
-# 📊 Expense Tracker API (v4.0.1)
+# 📊 Expense Tracker API (v1)
 
 A **high-performance, modular backend service** for tracking finances, built with **Spring Boot 4** and **Java 25**.  
 Designed for **cloud-native deployments**, this API leverages **modern JVM features** like **Virtual Threads** and **JSpecify null safety** to deliver scalability, reliability, and clean architecture.
