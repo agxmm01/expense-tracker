@@ -32,7 +32,7 @@ public class IncomeService {
     }
 
     // Get all the incomes for the current Month or based on the start date or end date
-    public List<IncomeDTO> getCurrentMonthExpensesForCurrentUser() {
+    public List<IncomeDTO> getCurrentMonthIncomesForCurrentUser() {
         ProfileEntity profile = profileService.getCurrentProfile();
         LocalDate now = LocalDate.now();
         LocalDate startDate = now.withDayOfMonth(1);
