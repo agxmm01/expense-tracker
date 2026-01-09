@@ -25,20 +25,29 @@ Designed for **cloud-native deployments**, this API leverages **modern JVM featu
 ## ✨ Key Features (Spring Boot 4)
 
 - **Modular Auto-Configuration**  
-  Reduced classpath scanning and improved startup performance.
+  Reduced classpath scanning and improved startup performance through Spring Boot 4’s internal modularization.
 
 - **Native API Versioning**  
-  Uses the new `version` attribute in `@RequestMapping` for clean API lifecycle management.
+  Uses the `version` attribute in `@RequestMapping` for clean and explicit API lifecycle management.
 
-- **Enhanced Observability**  
-  Built-in **OpenTelemetry** integration via  
-  `spring-boot-starter-opentelemetry`.
+- **Virtual Thread–Enabled Request Handling**  
+  Configured to leverage Java 25 Virtual Threads for efficient handling of concurrent requests with minimal resource overhead.
 
-- **Virtual Threads (Java 25)**  
-  Handles high-concurrency workloads with minimal resource usage.
+- **Clean Layered Architecture**  
+  Clear separation of controller, service, and persistence layers to improve maintainability and testability.
 
-- **JSpecify Null Safety**  
-  Compile-time null checking for safer, more reliable code.
+- **RESTful API Design**  
+  Consistent HTTP semantics with well-defined request and response models following REST best practices.
+
+- **Environment-Specific Configuration**  
+  Supports H2 for local development and PostgreSQL for production via externalized configuration.
+
+- **Production-Ready Health Checks**  
+  Spring Boot Actuator integration for application health and readiness monitoring.
+
+- **GraalVM Native Image Ready**  
+  Optimized build configuration to support native compilation for faster startup and reduced memory usage.
+
 
 ---
 
