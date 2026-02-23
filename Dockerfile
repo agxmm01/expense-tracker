@@ -1,6 +1,26 @@
-FROM eclipse-temurin:21-jre
-WORKDIR /app
-COPY target/expensetracker-0.0.1-SNAPSHOT.jar expensetracker-v1.0.jar
-EXPOSE 9090
-ENTRYPOINT ["java","-jar","expensetracker-v1.0.jar"]
+FROM amazoncorretto:25.0.2 AS build
 
+WORKDIR /app
+
+# Install required tools for Maven wrapper
+RUN yum install -y tar gzip && yum clean all
+
+COPY .mvn .mvn
+COPY src src
+COPY pom.xml .
+COPY mvnw .
+
+RUN chmod +x mvnw
+RUN ./mvnw clean install -DskipTests
+
+
+FROM amazoncorretto:25.0.2
+
+WORKDIR /app
+
+COPY --from=build /app/target/*.jar app.jar
+
+ENV PORT=8080
+EXPOSE 8080
+
+ENTRYPOINT ["java", "-jar", "app.jar"]
